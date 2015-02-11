@@ -2,7 +2,7 @@ require "sinatra"
 
 helpers do 
   def welcome(name)
-    "Welcome to my site, #{name}"
+    "<h1>Welcome to my site, #{name}.</h1>"
   end
 end
 
