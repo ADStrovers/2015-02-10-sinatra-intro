@@ -1,6 +1,10 @@
 require "sinatra"
+require 'rubygems'
+require 'active_support'
 
 module GasHelper
+  include ActiveSupport::NumberHelper
+  
   def price_per_gallon(amount, gas)
     amount.to_f / gas.to_f
   end
