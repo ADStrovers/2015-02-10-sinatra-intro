@@ -1,16 +1,29 @@
 require "sinatra"
 
-helpers do 
-  def welcome(name)
-    "<h1>Welcome to my site, #{name}.</h1>"
+module GasHelper
+  def price_per_gallon(amount, gas)
+    amount.to_f / gas.to_f
   end
 end
 
-before do 
-  @user_name = "Andrew"
+helpers GasHelper
+
+before "/result" do
+  if params == {}
+    redirect to("/calculator")
+  end
 end
   
-get "/testing" do
-  @user_name
-  erb :welcome, :layout => :boilerplate
+get "/" do
+  erb :homepage
+end
+
+get "/calculator" do
+  erb :calculator
+end
+
+get "/result" do
+  @result = price_per_gallon(params[:amount], params[:gas_fueled])
+  @name = params[:name]
+  erb :result
 end

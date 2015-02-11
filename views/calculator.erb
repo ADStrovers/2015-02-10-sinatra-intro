@@ -1,1 +1,17 @@
-<%= welcome(@user_name) %>
+<form action="/result">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" name="name">
+  </div>
+  <div>
+    <label for="amount">Amount Paid:</label>
+    <input type="text" name="amount">
+  </div>
+  <div>
+    <label for="gas_fueled">Gas Amount:</label>
+    <input type="text" name="gas_fueled">
+  </div>
+  <div class="button">
+    <button type="submit">Calculate</button>
+  </div>
+</form>
